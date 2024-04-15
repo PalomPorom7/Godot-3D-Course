@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://dil80q73hnvbt"]
+
+[ext_resource type="Texture2D" uid="uid://cg7f8eh7qn0mn" path="res://icon.svg" id="1_0kivp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhk4a"]
+albedo_texture = ExtResource("1_0kivp")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cr6u3"]
+material = SubResource("StandardMaterial3D_qhk4a")
+size = Vector2(5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_escjy"]
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_m23cf"]
+material = SubResource("StandardMaterial3D_escjy")
+size = Vector3(2, 0.5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yahkf"]
+albedo_color = Color(1, 0, 0, 1)
+metallic_specular = 1.0
+roughness = 0.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ex855"]
+material = SubResource("StandardMaterial3D_yahkf")
+radius = 0.1
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0a7b"]
+albedo_color = Color(1, 1, 0, 1)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_i804e"]
+material = SubResource("StandardMaterial3D_y0a7b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hc6gk"]
+transparency = 1
+albedo_color = Color(0, 0, 1, 0.501961)
+metallic_specular = 1.0
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_7gkme"]
+material = SubResource("StandardMaterial3D_hc6gk")
+radius = 0.25
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o72pw"]
+albedo_color = Color(0, 1, 0, 1)
+metallic = 0.5
+metallic_specular = 0.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_du8ox"]
+material = SubResource("StandardMaterial3D_o72pw")
+
+[node name="Game" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_cr6u3")
+
+[node name="Box" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_m23cf")
+skeleton = NodePath("../..")
+
+[node name="Capsule" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(0.75, 0.433013, 0.5, -0.5, 0.866025, 0, -0.433013, -0.25, 0.866025, 0, 0.75, -0.25)
+mesh = SubResource("CapsuleMesh_ex855")
+skeleton = NodePath("../..")
+
+[node name="Cylinder" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(0.216506, -0.125, 0, 0.108253, 0.1875, -0.125, 0.0625, 0.108253, 0.216506, 0.25, 0.8, 0.25)
+mesh = SubResource("CylinderMesh_i804e")
+skeleton = NodePath("../..")
+
+[node name="Sphere" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.75, 0.5)
+mesh = SubResource("SphereMesh_7gkme")
+skeleton = NodePath("../..")
+
+[node name="Torus" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(0.216506, -0.120741, -0.0323524, 0, 0.0647048, -0.241481, 0.125, 0.209129, 0.056036, 0.5, 0.8, 0.5)
+mesh = SubResource("TorusMesh_du8ox")
+skeleton = NodePath("../..")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.858065, 0.513541, 0, -0.513541, 0.858065, 0, 1.5, 2.5)
+
+[node name="Sunlight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 2, 0)
