@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dil80q73hnvbt"]
+[gd_scene load_steps=15 format=3 uid="uid://dil80q73hnvbt"]
 
 [ext_resource type="Texture2D" uid="uid://cg7f8eh7qn0mn" path="res://icon.svg" id="1_0kivp"]
+[ext_resource type="Script" path="res://player.gd" id="2_16ona"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhk4a"]
 albedo_texture = ExtResource("1_0kivp")
@@ -67,7 +68,7 @@ mesh = SubResource("BoxMesh_m23cf")
 skeleton = NodePath("../..")
 
 [node name="Capsule" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(0.75, 0.433013, 0.5, -0.5, 0.866025, 0, -0.433013, -0.25, 0.866025, 0, 0.75, -0.25)
+transform = Transform3D(0.75, 0.433013, 0.5, -0.5, 0.866025, 0, -0.433013, -0.25, 0.866025, 0, 0.75, -0.554111)
 mesh = SubResource("CapsuleMesh_ex855")
 skeleton = NodePath("../..")
 
@@ -91,3 +92,6 @@ transform = Transform3D(1, 0, 0, 0, 0.858065, 0.513541, 0, -0.513541, 0.858065, 
 
 [node name="Sunlight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 2, 0)
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("2_16ona")
