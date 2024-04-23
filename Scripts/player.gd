@@ -5,6 +5,12 @@ extends Node
 var _input_direction : Vector2
 var _move_direction : Vector3
 
+func _input(event : InputEvent):
+	if event.is_action_pressed("run"):
+		_character.run()
+	elif event.is_action_released("run"):
+		_character.walk()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta : float):
 	_input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
