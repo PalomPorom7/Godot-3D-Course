@@ -18,6 +18,7 @@ size = Vector3(5, 0, 5)
 
 [node name="Sunlight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 2, 0)
+shadow_enabled = true
 
 [node name="Player" type="Node" parent="." node_paths=PackedStringArray("_character", "_camera")]
 script = ExtResource("2_16ona")

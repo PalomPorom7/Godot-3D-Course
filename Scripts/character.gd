@@ -13,6 +13,7 @@ var _angle_difference : float
 var _xz_velocity : Vector3
 
 @onready var _animation : AnimationTree = $AnimationTree
+@onready var _state_machine : AnimationNodeStateMachinePlayback = _animation["parameters/playback"]
 @onready var _rig : Node3D = $Rig
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -28,6 +29,13 @@ func walk():
 func run():
 	_movement_speed = _running_speed
 
+func jump():
+	if is_on_floor():
+		_state_machine.travel("Jump_Start")
+
+func _apply_jump_velocity():
+	velocity.y = JUMP_VELOCITY
+
 func _physics_process(delta : float):
 	# If the player is giving movement input, face that direction
 	if _direction:
@@ -38,10 +46,6 @@ func _physics_process(delta : float):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
 	# Apply movement input to the xz velocity
 	if _direction:
