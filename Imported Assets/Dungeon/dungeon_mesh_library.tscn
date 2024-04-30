@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://ccm8yv4ti1ij6"]
+[gd_scene load_steps=72 format=3 uid="uid://ccm8yv4ti1ij6"]
 
 [ext_resource type="PackedScene" uid="uid://bnfl5p5cu4bot" path="res://Imported Assets/Dungeon/floor_dirt_large.gltf.glb" id="1_3f4s1"]
 [ext_resource type="PackedScene" uid="uid://cgdxbn1sy2sd5" path="res://Imported Assets/Dungeon/box_large.gltf.glb" id="2_mwttx"]
@@ -46,10 +46,8 @@
 [ext_resource type="PackedScene" uid="uid://bumv4fggycghv" path="res://Imported Assets/Dungeon/banner_yellow.gltf.glb" id="44_6avhk"]
 [ext_resource type="PackedScene" uid="uid://e2bgaetqe1of" path="res://Imported Assets/Dungeon/wall.gltf.glb" id="45_jgp5y"]
 [ext_resource type="PackedScene" uid="uid://b51g02vdihd4i" path="res://Imported Assets/Dungeon/wall_arched.gltf.glb" id="46_t5nf4"]
-[ext_resource type="PackedScene" uid="uid://b06etk0owqmiw" path="res://Imported Assets/Dungeon/wall_archedwindow_gated.gltf.glb" id="47_nrd8o"]
 [ext_resource type="PackedScene" uid="uid://b06etk0owqmiw" path="res://Imported Assets/Dungeon/wall_archedwindow_gated_scaffold.gltf.glb" id="48_jf87n"]
 [ext_resource type="PackedScene" uid="uid://dmopemspjl4f6" path="res://Imported Assets/Dungeon/wall_archedwindow_open.gltf.glb" id="49_crqig"]
-[ext_resource type="PackedScene" uid="uid://dx2be734jrmqq" path="res://Imported Assets/Dungeon/wall_broken.gltf.glb" id="50_pjuom"]
 [ext_resource type="PackedScene" uid="uid://dx2be734jrmqq" path="res://Imported Assets/Dungeon/wall_corner.gltf.glb" id="51_8qtsu"]
 [ext_resource type="PackedScene" uid="uid://nyncm8vdeu0u" path="res://Imported Assets/Dungeon/wall_corner_gated.gltf.glb" id="52_yv5ui"]
 [ext_resource type="PackedScene" uid="uid://bloboa7er47pp" path="res://Imported Assets/Dungeon/wall_corner_scaffold.gltf.glb" id="53_xi5tt"]
@@ -72,7 +70,6 @@
 [ext_resource type="PackedScene" uid="uid://q8141lhsfhtp" path="res://Imported Assets/Dungeon/wall_Tsplit_sloped.gltf.glb" id="70_nbruu"]
 [ext_resource type="PackedScene" uid="uid://b5pijjoxnwtv" path="res://Imported Assets/Dungeon/wall_window_closed.gltf.glb" id="71_6cvla"]
 [ext_resource type="PackedScene" uid="uid://dmdineyu4apuk" path="res://Imported Assets/Dungeon/wall_window_closed_scaffold.gltf.glb" id="72_wt7k6"]
-[ext_resource type="PackedScene" uid="uid://c6m0uhjgx734q" path="res://Imported Assets/Dungeon/wall_window_open.gltf.glb" id="73_vkwry"]
 [ext_resource type="PackedScene" uid="uid://c6m0uhjgx734q" path="res://Imported Assets/Dungeon/wall_window_open_scaffold.gltf.glb" id="74_0cnrp"]
 
 [node name="Node3D" type="Node3D"]
@@ -169,13 +166,13 @@
 
 [node name="wall_arched_gltf" parent="." instance=ExtResource("46_t5nf4")]
 
-[node name="wall_archedwindow_gated_gltf" parent="." instance=ExtResource("47_nrd8o")]
+[node name="wall_archedwindow_gated_gltf" parent="." instance=ExtResource("48_jf87n")]
 
 [node name="wall_archedwindow_gated_scaffold_gltf" parent="." instance=ExtResource("48_jf87n")]
 
 [node name="wall_archedwindow_open_gltf" parent="." instance=ExtResource("49_crqig")]
 
-[node name="wall_broken_gltf" parent="." instance=ExtResource("50_pjuom")]
+[node name="wall_broken_gltf" parent="." instance=ExtResource("51_8qtsu")]
 
 [node name="wall_corner_gltf" parent="." instance=ExtResource("51_8qtsu")]
 
@@ -221,6 +218,6 @@
 
 [node name="wall_window_closed_scaffold_gltf" parent="." instance=ExtResource("72_wt7k6")]
 
-[node name="wall_window_open_gltf" parent="." instance=ExtResource("73_vkwry")]
+[node name="wall_window_open_gltf" parent="." instance=ExtResource("74_0cnrp")]
 
 [node name="wall_window_open_scaffold_gltf" parent="." instance=ExtResource("74_0cnrp")]
