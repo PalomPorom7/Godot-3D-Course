@@ -1,27 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dil80q73hnvbt"]
+[gd_scene load_steps=6 format=3 uid="uid://dil80q73hnvbt"]
 
-[ext_resource type="Texture2D" uid="uid://cg7f8eh7qn0mn" path="res://icon.svg" id="1_0kivp"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_16ona"]
 [ext_resource type="PackedScene" uid="uid://dsgxki7n5lrmk" path="res://Scenes/character.tscn" id="3_2iql4"]
 [ext_resource type="Script" path="res://Scripts/spring_arm.gd" id="3_u51m3"]
+[ext_resource type="PackedScene" uid="uid://dujtkfkjn3agj" path="res://Scenes/dungeon.tscn" id="4_bimas"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7hssf"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhk4a"]
-albedo_texture = ExtResource("1_0kivp")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_cr6u3"]
-material = SubResource("StandardMaterial3D_qhk4a")
-size = Vector2(5, 5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_erhbt"]
-size = Vector3(5, 0, 5)
-
 [node name="Game" type="Node3D"]
-
-[node name="Sunlight" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 2, 0)
-shadow_enabled = true
 
 [node name="Player" type="Node" parent="." node_paths=PackedStringArray("_character", "_spring_arm", "_camera")]
 script = ExtResource("2_16ona")
@@ -30,43 +16,15 @@ _spring_arm = NodePath("../CharacterBody3D/SpringArm3D")
 _camera = NodePath("../CharacterBody3D/SpringArm3D/Camera")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("3_2iql4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00493, 0.621913, 1.83047)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70044, 0)
 shape = SubResource("BoxShape3D_7hssf")
 spring_length = 5.0
 script = ExtResource("3_u51m3")
-_min_x_rotation = -1.257
-_max_x_rotation = 1.553
 
 [node name="Camera" type="Camera3D" parent="CharacterBody3D/SpringArm3D"]
 h_offset = 1.0
 
-[node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("PlaneMesh_cr6u3")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("BoxShape3D_erhbt")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
-use_collision = true
-size = Vector3(1, 2, 1)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 0)
-use_collision = true
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, 0)
-use_collision = true
-size = Vector3(1, 3, 1)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, 0)
-use_collision = true
-size = Vector3(1, 3, 1)
+[node name="Dungeon" parent="." instance=ExtResource("4_bimas")]
