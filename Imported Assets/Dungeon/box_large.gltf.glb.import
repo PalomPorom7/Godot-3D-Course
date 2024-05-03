@@ -34,7 +34,7 @@ _subresources={
 "PATH:box_large": {
 "generate/physics": true,
 "physics/body_type": 1,
-"physics/shape_type": 1,
+"physics/shape_type": 2,
 "primitive/position": Vector3(0, 0.75, 0),
 "primitive/size": Vector3(1.5, 1.5, 1.5)
 }
